@@ -62,19 +62,8 @@ public class AlternativeArrayList<E> implements List<E> {
         return quantity == 0;
     }
 
-    //TODO доделать
     private Object[] grow() {
-        return grow(quantity + 1);
-    }
-    //TODO доделать
-    private Object[] grow(int minCapacity) {
-        return objects = Arrays.copyOf(objects, newCapacity());
-    }
-
-    //TODO доделать
-    private int newCapacity() {
-        int oldCapacity = objects.length;
-        return (oldCapacity * 3) / 2 + 1;
+        return objects = Arrays.copyOf(objects, (objects.length * 3) / 2 + 1);
     }
 
     @Override
@@ -134,12 +123,14 @@ public class AlternativeArrayList<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        return null;
+        return (E) objects[index];
     }
 
     @Override
     public E set(int index, E element) {
-        return null;
+        E oldValue = (E) objects[index];
+        objects[index] = element;
+        return oldValue;
     }
 
     @Override
