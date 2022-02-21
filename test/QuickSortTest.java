@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class QuickSortTest {
     AlternativeArrayList<String> list = new AlternativeArrayList<>();
-    QuickSort<String> qc;
+    QuickSort<String> qs;
 
     @Test
     void sort() {
@@ -20,9 +20,9 @@ class QuickSortTest {
         list.add("blaster");
         list.add("something");
         Comparator<String> stringCompare = Comparator.comparing((String x) -> x);
-        qc = new QuickSort<>(list, stringCompare);
+        qs = new QuickSort<>();
         //when
-        AlternativeArrayList<String> list2 = qc.sort();
+        AlternativeArrayList<String> list2 = qs.sort(list, stringCompare);
         //then
         assertEquals("blaster",list2.get(0));
         assertEquals("text",list2.get(6));
